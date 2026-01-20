@@ -10,7 +10,5 @@ namespace Inventario_Equipos.Data
         }
         public DbSet<User> Users { get; set; }
         public DbSet<Computer> Computers { get; set; }
-        public DbSet<Asignation> Asignations { get; set; }
-        public DbSet<Maintenance> Maintenances { get; set; }
     }
 }
