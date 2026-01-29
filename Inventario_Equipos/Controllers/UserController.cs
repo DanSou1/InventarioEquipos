@@ -16,6 +16,13 @@ namespace Inventario_Equipos.Controllers
         {
             _context = context;
         }
+        [HttpPost]
+        public IActionResult CreateUser(User create)
+        {
+            _context.Users.Add(create);
+            _context.SaveChanges();
+            return Ok(create);
+        }
         [HttpGet]
         public IActionResult AllUsers()
         {
@@ -34,13 +41,6 @@ namespace Inventario_Equipos.Controllers
             {
                 return Ok(user);
             }
-        }
-        [HttpPost]
-        public IActionResult CreateUser (User create)
-        {
-            _context.Users.Add(create);
-            _context.SaveChanges();
-            return Ok(create);
         }
     }
 

@@ -10,5 +10,6 @@ namespace Inventario_Equipos.Data
         }
         public DbSet<User> Users { get; set; }
         public DbSet<Computer> Computers { get; set; }
+        public DbSet<Assignment> Assignments { get; set; }
     }
 }

@@ -1,5 +1,4 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using Inventario_Equipos.Models;
 using Inventario_Equipos.Data;
 
@@ -14,6 +13,13 @@ namespace Inventario_Equipos.Controllers
         public ComputersController(InventaryDbContext context)
         {
             _context = context;
+        }
+        [HttpPost]
+        public IActionResult Create(Computer create)
+        {
+            _context.Computers.Add(create);
+            _context.SaveChanges();
+            return Ok(create);
         }
         [HttpGet]
         public IActionResult GetAllComputers()
@@ -33,13 +39,6 @@ namespace Inventario_Equipos.Controllers
             {
                 return Ok(computer);
             }
-        }
-        [HttpPost]
-        public IActionResult Create (Computer create)
-        {
-            _context.Computers.Add(create);
-            _context.SaveChanges();
-            return Ok(create);
         }
     }
 }
